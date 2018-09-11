@@ -38,11 +38,11 @@ class N28ForLoopKtTest {
 
     @Test fun testIterateOverTheNewYear() {
         val actualDateRange = ArrayList<MyDate>()
-        iterateOverDateRange(MyDate(2016, 11, 31), MyDate(2017, 0, 1), {
+        iterateOverDateRange(MyDate(2016, 12, 31), MyDate(2017, 1, 1), {
             date: MyDate -> actualDateRange.add(date)
         })
         val expectedDateRange = arrayListOf(
-                MyDate(2016, 11, 31), MyDate(2017, 0, 1))
+                MyDate(2016, 12, 31), MyDate(2017, 1, 1))
         assertEquals("Incorrect iteration over the end of the year",
                 expectedDateRange, actualDateRange)
     }
