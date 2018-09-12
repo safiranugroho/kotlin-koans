@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.2.10'
+    ext.kotlin_version = '1.2.61'
 
     repositories {
         mavenCentral()
@@ -13,8 +13,18 @@ buildscript {
 apply plugin: 'kotlin'
 
 sourceSets {
-    main.java.srcDirs += 'src'
-    test.java.srcDirs += 'test'
+    main {
+        java {
+            srcDirs = ["src"]
+        }
+    }
+    test {
+        java {
+            srcDirs = ["test"]
+        }
+    }
+//    main.java.srcDirs += 'src'
+//    test.java.srcDirs += 'test'
 }
 
 repositories {
@@ -25,4 +35,6 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'com.google.guava:guava:16.0'
     testCompile 'junit:junit:4.12'
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.2.0'
+    implementation 'junit:junit:4.12'
 }
