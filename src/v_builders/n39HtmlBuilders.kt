@@ -3,6 +3,7 @@ package v_builders
 import util.TODO
 import util.doc39
 import v_builders.data.getProducts
+import v_builders.data.*
 import v_builders.htmlLibrary.*
 
 fun getTitleColor() = "#b9c9fe"
@@ -22,7 +23,7 @@ fun todoTask39(): Nothing = TODO(
 fun renderProductTable(): String {
     return html {
         table {
-            tr {
+            tr(getTitleColor()) {
                 td {
                     text("Product")
                 }
@@ -34,7 +35,22 @@ fun renderProductTable(): String {
                 }
             }
             val products = getProducts()
-            todoTask39()
+            var row = 1
+            for (product in products) {
+                row++
+
+                tr {
+                    td(getCellColor(row, 1)) {
+                        text(product.description)
+                    }
+                    td(getCellColor(row, 2)) {
+                        text(product.price)
+                    }
+                    td(getCellColor(row, 3)) {
+                        text(product.popularity)
+                    }
+                }
+            }
         }
     }.toString()
 }
